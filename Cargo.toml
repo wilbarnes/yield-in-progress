@@ -7,10 +7,11 @@ publish = false
 
 [dependencies]
 solana-program = "1.5.0"
-serum-pool = {version = "0.1.0", git = "https://github.com/wilbarnes/custom-pool", default-features = false, branch = "main" }
+serum-pool = {version = "0.2.0", git = "https://github.com/wilbarnes/custom-pool", default-features = false, branch = "main" }
 spl-token = { version = "3.0.0", features = ["no-entrypoint"] }
-# syn = "=1.0.57"
+spl-token-lending = {version = "0.1.0", git = "https://github.com/solana-labs/solana-program-library", branch = "master", default-features = false, features = ["no-entrypoint"]}
 borsh = { git = "https://github.com/project-serum/borsh", branch = "serum"  }
+uint = "0.8"
 
 [features]
 

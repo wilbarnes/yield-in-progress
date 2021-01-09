@@ -10,6 +10,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "alloc-traits"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6b2d54853319fd101b8dd81de382bcbf3e03410a64d8928bbee85a3e7dcde483"
+
+[[package]]
 name = "anyhow"
 version = "1.0.37"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -120,7 +126,9 @@ dependencies = [
  "borsh",
  "serum-pool",
  "solana-program",
- "spl-token",
+ "spl-token 3.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "spl-token-lending",
+ "uint",
 ]
 
 [[package]]
@@ -170,6 +178,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
+name = "crunchy"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7a81dae078cea95a014a339291cec439d2f232ebe854a9d672b796c6afafa9b7"
+
+[[package]]
 name = "curve25519-dalek"
 version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -209,6 +223,26 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e78d4f1cc4ae33bbfc157ed5d5a5ef3bc29227303d595861deb238fcec4e9457"
 
 [[package]]
+name = "enumflags2"
+version = "0.6.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "83c8d82922337cd23a15f88b70d8e4ef5f11da38dd7cdb55e84dd5de99695da0"
+dependencies = [
+ "enumflags2_derive",
+]
+
+[[package]]
+name = "enumflags2_derive"
+version = "0.6.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "946ee94e3dbf58fdd324f9ce245c7b238d46a66f00e86a020b71996349e46cce"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "env_logger"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -232,6 +266,16 @@ name = "feature-probe"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "835a3dc7d1ec9e75e2b5fb4ba75396837112d2060b03f7d43bc1897c7f7211da"
+
+[[package]]
+name = "field-offset"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c40e7a744c1d22cd64783732a287dd5d08a9f0e1d89b685bf084aab753cb20d4"
+dependencies = [
+ "memoffset",
+ "rustc_version",
+]
 
 [[package]]
 name = "generic-array"
@@ -328,6 +372,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d9b70ca2a6103ac8b665dc150b142ef0e4e89df640c9e6cf295d189c3caebe5a"
 dependencies = [
  "libc",
+]
+
+[[package]]
+name = "memoffset"
+version = "0.5.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "043175f069eda7b85febe4a74abbaeff828d9f8b448515d3151a14a3542811aa"
+dependencies = [
+ "autocfg",
 ]
 
 [[package]]
@@ -471,6 +524,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3b181ba2dcf07aaccad5448e8ead58db5b742cf85dfe035e2227f137a539a189"
 
 [[package]]
+name = "rustc-hex"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3e75f6a532d0fd9f7f13144f392b6ad56a32696bfcd9c78f797f16bbb6f072d6"
+
+[[package]]
 name = "rustc_version"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -484,6 +543,12 @@ name = "rustversion"
 version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "cb5d2a036dc6d2d8fd16fde3498b04306e29bd193bf306a57427019b823d5acd"
+
+[[package]]
+name = "safe-transmute"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "50b8b2cd387f744f69469aaed197954ba4c0ecdb31e02edf99b023e0df11178a"
 
 [[package]]
 name = "semver"
@@ -531,8 +596,8 @@ dependencies = [
 
 [[package]]
 name = "serum-pool"
-version = "0.1.0"
-source = "git+https://github.com/wilbarnes/custom-pool?branch=main#32ed7bfa5d4005ce4ef45372717b3838264ac6e4"
+version = "0.2.0"
+source = "git+https://github.com/wilbarnes/custom-pool?branch=main#02f56f37defe455c4b642018cddad796d28a0357"
 dependencies = [
  "anyhow",
  "arrayref",
@@ -543,7 +608,7 @@ dependencies = [
  "serum-pool-schema",
  "slice-of-array",
  "solana-program",
- "spl-token",
+ "spl-token 3.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror",
  "zerocopy",
 ]
@@ -551,10 +616,33 @@ dependencies = [
 [[package]]
 name = "serum-pool-schema"
 version = "0.1.0"
-source = "git+https://github.com/wilbarnes/custom-pool?branch=main#32ed7bfa5d4005ce4ef45372717b3838264ac6e4"
+source = "git+https://github.com/wilbarnes/custom-pool?branch=main#02f56f37defe455c4b642018cddad796d28a0357"
 dependencies = [
  "borsh",
  "solana-program",
+]
+
+[[package]]
+name = "serum_dex"
+version = "0.2.0"
+source = "git+https://github.com/project-serum/serum-dex?rev=991a86e#991a86e93c22667b6b0fbb01914395d332be5531"
+dependencies = [
+ "arrayref",
+ "bincode",
+ "bytemuck",
+ "byteorder",
+ "enumflags2",
+ "field-offset",
+ "itertools",
+ "num-traits",
+ "num_enum",
+ "safe-transmute",
+ "serde",
+ "solana-program",
+ "spl-token 3.0.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "static_assertions",
+ "thiserror",
+ "without-alloc",
 ]
 
 [[package]]
@@ -677,6 +765,40 @@ dependencies = [
 ]
 
 [[package]]
+name = "spl-token"
+version = "3.0.1"
+source = "git+https://github.com/solana-labs/solana-program-library#7a2ef3561ed72624783a4c15f788174bd3e820c0"
+dependencies = [
+ "arrayref",
+ "num-derive",
+ "num-traits",
+ "num_enum",
+ "solana-program",
+ "thiserror",
+]
+
+[[package]]
+name = "spl-token-lending"
+version = "0.1.0"
+source = "git+https://github.com/solana-labs/solana-program-library#7a2ef3561ed72624783a4c15f788174bd3e820c0"
+dependencies = [
+ "arrayref",
+ "num-derive",
+ "num-traits",
+ "serum_dex",
+ "solana-program",
+ "spl-token 3.0.1 (git+https://github.com/solana-labs/solana-program-library)",
+ "thiserror",
+ "uint",
+]
+
+[[package]]
+name = "static_assertions"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
+
+[[package]]
 name = "subtle"
 version = "2.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -759,6 +881,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "373c8a200f9e67a0c95e62a4f52fbf80c23b4381c05a17845531982fa99e6b33"
 
 [[package]]
+name = "uint"
+version = "0.8.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9db035e67dfaf7edd9aebfe8676afcd63eed53c8a4044fed514c8cccf1835177"
+dependencies = [
+ "byteorder",
+ "crunchy",
+ "rustc-hex",
+ "static_assertions",
+]
+
+[[package]]
 name = "unicode-xid"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -806,6 +940,15 @@ name = "winapi-x86_64-pc-windows-gnu"
 version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
+
+[[package]]
+name = "without-alloc"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e34736feff52a0b3e5680927e947a4d8fac1f0b80dc8120b080dd8de24d75e2"
+dependencies = [
+ "alloc-traits",
+]
 
 [[package]]
 name = "zerocopy"
