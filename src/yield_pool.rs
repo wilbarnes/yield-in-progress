@@ -4,11 +4,13 @@ use solana_program::{
     msg
 };
 
+use borsh::{BorshDeserialize};
+
 use serum_pool::{context::PoolContext, schema::PoolState, pool::Pool};
 
 use crate::{
     lending_protocols::{Oyster, LendingProtocol},
-    state::{CustomPoolState, CustomPoolStateContainer}
+    state::{CustomPoolState, CustomPoolStateContainer, LendingProtocolState, YieldPoolTag}
 };
 
 pub struct YieldPool;
@@ -16,10 +18,15 @@ pub struct YieldPool;
 impl YieldPool {
     #[allow(non_snake_case)]
     pub fn optimise(accounts: &[AccountInfo]) -> Result<(), ProgramError> {
+        // TODO: write check
+        // let account_info_iter = &mut accounts.iter();
+
         let oysterAPY = Oyster::calculate_deposit_APY(accounts);
         Ok(())
     }
 }
+
+// add struct for lending protocols
 
 impl Pool for YieldPool {
     fn initialize_pool(context: &PoolContext, state: &mut PoolState) -> Result<(), ProgramError> {
@@ -27,7 +34,14 @@ impl Pool for YieldPool {
             msg!("Missing yield protocol accounts.");
             return Err(ProgramError::NotEnoughAccountKeys);
         }
-        state.write_custom_state(&CustomPoolState::default())?;
+
+        let lending_protocols = Vec::<LendingProtocolState>::deserialize(&mut &context.custom_data[..]).unwrap();
+
+        state.write_custom_state(&CustomPoolState {
+            tag: YieldPoolTag::default(),
+            lending_protocols
+        });
+
         Ok(())
     }
 

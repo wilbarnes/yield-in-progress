@@ -11,8 +11,6 @@ declare_tag!(YieldPoolTag, u64, 0x4a3ab7f76f93f94e);
 #[derive(Clone, PartialEq, Eq, BorshSerialize, BorshDeserialize, Default)]
 pub struct CustomPoolState {
     pub tag: YieldPoolTag,
-    pub name: String,
-    pub asset_pubkey: Address,
     pub lending_protocols: Vec<LendingProtocolState>,
 }
 
@@ -20,7 +18,8 @@ pub struct CustomPoolState {
 pub struct LendingProtocolState {
     pub name: String,
     pub lending_protocol_program_id: Address,
-    pub num_accounts: u8
+    pub num_accounts: u8,
+    pub collateral_account_key: Address
 }
 
 pub trait CustomPoolStateContainer {

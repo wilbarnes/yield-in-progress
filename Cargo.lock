@@ -17,9 +17,9 @@ checksum = "6b2d54853319fd101b8dd81de382bcbf3e03410a64d8928bbee85a3e7dcde483"
 
 [[package]]
 name = "anyhow"
-version = "1.0.37"
+version = "1.0.38"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ee67c11feeac938fae061b232e38e0b6d94f97a9df10e6271319325ac4c56a86"
+checksum = "afddf7f520a80dbf76e6f50a35bca42a2331ef227a28b3b6dc5c2e2338d114b1"
 
 [[package]]
 name = "arrayref"
@@ -596,8 +596,8 @@ dependencies = [
 
 [[package]]
 name = "serum-pool"
-version = "0.2.0"
-source = "git+https://github.com/wilbarnes/custom-pool?branch=main#02f56f37defe455c4b642018cddad796d28a0357"
+version = "0.3.0"
+source = "git+https://github.com/wilbarnes/custom-pool?branch=main#40509e90eb4cb2299c9bc97f60f7f99ebb7d212e"
 dependencies = [
  "anyhow",
  "arrayref",
@@ -616,7 +616,7 @@ dependencies = [
 [[package]]
 name = "serum-pool-schema"
 version = "0.1.0"
-source = "git+https://github.com/wilbarnes/custom-pool?branch=main#02f56f37defe455c4b642018cddad796d28a0357"
+source = "git+https://github.com/wilbarnes/custom-pool?branch=main#40509e90eb4cb2299c9bc97f60f7f99ebb7d212e"
 dependencies = [
  "borsh",
  "solana-program",
@@ -753,8 +753,7 @@ dependencies = [
 [[package]]
 name = "spl-token"
 version = "3.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a9774eebb62ff1ff2f5eca112413e476143925a2f5a43cee98fc5d3a6c0eec5c"
+source = "git+https://github.com/solana-labs/solana-program-library#7a2ef3561ed72624783a4c15f788174bd3e820c0"
 dependencies = [
  "arrayref",
  "num-derive",
@@ -767,7 +766,8 @@ dependencies = [
 [[package]]
 name = "spl-token"
 version = "3.0.1"
-source = "git+https://github.com/solana-labs/solana-program-library#7a2ef3561ed72624783a4c15f788174bd3e820c0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a9774eebb62ff1ff2f5eca112413e476143925a2f5a43cee98fc5d3a6c0eec5c"
 dependencies = [
  "arrayref",
  "num-derive",
